@@ -7,10 +7,25 @@
     <script defer src="./getData.js"></script>
   </head>
   <body>
-    <form method="POST">
+    <form
+      id="image-form"
+      method="POST"
+      action="/upload-image"
+      enctype="multipart/form-data"
+    >
       <input type="file" name="pic" accept="image/*" />
       <input type="submit" />
     </form>
     <div id="content"></div>
+    <script defer>
+      document.getElementById("image-form").addEventListener(
+        "submit",
+        (e) => {
+          console.log("prevented");
+          e.preventDefault();
+        },
+        false
+      );
+    </script>
   </body>
 </html>
